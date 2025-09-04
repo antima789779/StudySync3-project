@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --primary-color:#6366F1;
+            --accent-color:#3f83f8;
+            --text-color:#333333;
+            --link-color:#2563eb;
+            --background-color:#ffffff;
+            --light-grey:#f0f0f0;
+            --grey:#808080;
+            --dark-gray:#555;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box;
+            text-decoration:none ;
+            font-family:"Inter", sans-serif;
+        }
+        body{
+            width:100vw;
+            height:100vh;
+            background-color:var(--background-color) ;
+            padding:1rem;
+            text-align:center;
+        }
+        .header_content{
+            max-width:1280px;
+            display:flex;
+            justify-content:space-between ;
+            margin:0 auto;
+            padding:1rem;
+            align-items:center;
+        }
+        .logo{
+            display:flex;
+            align-items: center;
+            font-size:2rem;
+            font-weight:bold;
+            color:var(--text-color);
+            gap:0.625rem;
+        }
+        .logo-icon{
+            height:5.875rem;
+            width:1.938rem;
+        }
+        .logo-txt{
+            font-size:2rem;
+        }
+        .nav{
+            display:none;
+            gap:1.5rem;
+        }
+        @media screen and (min-width:768px){
+            .nav{
+                display:flex;
+            }
+
+        }
+        .nav-link{
+            color:#718096;
+            font-size:1.125rem;
+            font-weight: 600;
+            transform:color 0.1s;
+        }
+        .nav-link:hover{
+            color:var(--link-color);
+        }
+        .contact-button{
+            display:none;
+            border:none;
+            border-radius:.375rem;
+            background-color:var(--primary-color)  ;
+            color:var(--background-color);
+            transform:all 0.1s;
+            padding:0.75rem 1.5rem;
+            font-size:1rem;
+            font-weight:600;
+        }
+        @media screen and (min-width:768px){
+            .contact-button{
+                display:flex;
+            }  
+            
+        }
+        .contact-button:hover{
+           background-color:#5254f8;
+        }
+        .menu-button{
+            display:none;
+            border:none;
+            border-radius:.375rem;
+            background-color: var(--background-color);
+            font-size:1rem;
+             font-weight:600;
+             padding:0.5rem 1.1rem;
+        }
+        .menu-icon{
+            height:1.5rem;
+            width:1.5rem;
+        }
+        @media screen and(max-width:768px){
+            .menu-button{
+                display: flex;
+            }
+        }
+        .main-section{
+            max-width:1280px;
+            display:flex;
+            flex-direction:column;
+            gap:2rem;
+            padding:0.6rem;
+            align-items:center;
+            margin: 0 auto;
+        }
+        .content-left{
+            text-align: center;
+            animation:slidefromleft 1s ease forwards;
+            opacity:0;
+        }
+        @keyframes slidefromleft{
+            0%{
+                opacity:0;
+                transform:translateX(-100%);
+            }
+            100%{
+                opacity:1;
+                transform:translateX(0);
+            }
+        }
+        .section-label{
+            font-size:1rem;
+            font-weight:600;
+            color:var(--primary-color);
+        }
+        .section-title{
+            font-size:2.25rem;
+           /* padding:1rem;*/
+            color:var(--text-color);
+        }
+        .section-title{
+          font-size:2.25rem;
+          padding:1rem  ;
+          color:var(var(--text-color));
+
+        }
+        .section-desc{
+            font-size:1.21rem;
+            color:var(--grey);
+
+        }
+        .start-button,.tour-button{
+            border:none;
+            border-radius:.375rem;
+            background-color:var(--primary-color)  ;
+            color:var(--background-color);
+            transform:all 0.1s;
+            padding:0.75rem 1.5rem;
+            font-size:1rem;
+            font-weight:600;
+        }
+        .button-group{
+            display:flex;
+            margin-top:1rem;
+            padding:1rem;
+            gap:1.5rem;
+            justify-content:start;
+            align-items:center ;
+            padding-left:0 ;
+        }
+        .tour-button{
+            background-color:var(--dark-gray);
+        }
+        .start-button:hover{
+            background-color:#5254f8 ;
+        }
+        .tour-button:hover{
+            background-color:var(--grey);
+        }
+        .content-right{
+            display:flex;
+            align-items:center;
+            justify-content:center ;
+        }
+        .image-container{
+            border:none;
+            overflow:hidden;
+            border-radius:1.225rem;
+            box-shadow:0px 4px 8px rgba(0,0,0,0,1);
+            height:50vh;
+            width:50vh;
+        }
+        .section-image{
+            height:100%;
+            width:100%;
+
+        }
+        @media screen and (min-width:768px){
+            .main-section{
+                display:flex;
+                flex-direction:row;
+            }
+        .content-left{
+            max-width:50%;
+            text-align:left;
+        }
+        .section-title{
+            padding-left:0; 
+            font-size:3.8em;
+        }
+        .button-group{
+            justify-content:start ;
+            padding-left:0;
+        }
+        .section-label{
+            font-size:1rem;
+        }
+        .image-container{
+            height:60vh;
+        }
+        .section-description{
+            font-size:1.1rem;
+            color:var(--grey);
+            width:78%;
+        }
+    }
+    .company-container{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
+        margin-top:2rem;
+        animation:startfromleft 1s ease forwards;
+        opacity:0;
+    }
+    @keyframes startfromleft{
+            0%{
+                opacity:0;
+                transform:translateX(-100%);
+            }
+            100%{
+                opacity:1;
+                transform:translateX(0);
+            }
+        }
+    .company-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr) ;
+        gap:4rem;
+        padding:1rem;
+        background-color:var(--light-grey) ;
+        border:none;
+        border-radius:0.625rem;
+        margin-top:2rem;
+        margin-bottom:10rem ;
+        padding:2rem 2rem;
+    }
+    .company-logo{
+        font-size:1rem;
+        font-weight:500;
+        color: var(--grey);
+        display:flex;
+        gap:.5rem;
+    }
+    .svg-img{
+        height:32px;
+    }
+    .logo-text{
+        font-size:1rem;     
+    }
+    @media screen and (min-width:640px){
+        .company-grid{
+            grid-template-columns:repeat(4,1fr);
+        }   
+    }
+    .company-title{
+        font-size:2.5rem;
+        font-weight:bold;
+    }  
+    .feature-container{
+        background-color:var(--light-grey) ;
+        padding:1.5rem 0;
+        text-align:center;
+    } 
+    .feature-content{
+        max-width:800px;
+        margin:0 auto;
+        padding:0 2rem;
+    }
+    .main-title2{
+        font-size:2.2rem;
+        font-weight:2.2rem;
+    }
+    .main-description2{
+       color:var(--grey) ;
+        font-size: 1.1rem;
+    }
+    .main-info{
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+    }
+    .feature-grid{
+        display:grid;
+        gap:2rem;
+        grid-template-columns:repeat(2,1fr);
+        margin-top:1.4rem;
+    }
+    .feature-svg{
+     width:1.5rem;
+     height:1.5rem;
+    }
+    .icon-container{
+        background-color:var(--background-color) ;
+        height:3rem;
+        width:3rem;
+        border-radius:50%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .feature-card{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background-color:var(--dark-gray) ;
+        padding:2rem;
+        border-radius:1.3rem;
+        gap:1rem;
+    }
+    .feature-desc{
+        color:white;
+    }
+    .feature-title{
+        color:white;
+        font-weight: bold;
+        font-size:1.3rem;
+    }
+    .feature-card:nth-child(2){
+        background-color:#ff6289 ;
+    }
+    .feature-card:nth-child(3){
+        background-color:#fcbf58 ;
+    }
+    .feature-card:nth-child(4){
+        background-color:#44bfc3 ;
+    }
+    .feature-card:nth-child(5){
+        background-color:#77b0fd ;
+    }
+    .feature-card:nth-child(6){
+        background-color:#7d78b1 ;
+    }
+    .feature-card:nth-child(1){
+        background-color:#4a90e2 ;
+    }
+    .feature-info{
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+    }
+    @media screen and(max-width:768px) {
+        .feature-grid{
+            grid-template-columns:repeat(1,1fr) ;
+            margin:0 1rem;
+        }
+        
+    }
+    .testimonial-container{
+        background-color: var(--background-color);
+        padding:0 2rem;
+        margin:0 auto;
+        max-width:1200px;
+
+    }
+    .testimonial-title{
+        padding-top:2rem;
+        font-size:1.875rem;
+        font-weight:bold;
+    }
+    .testimonial-grid{
+     display:grid;
+     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));   
+        gap:2rem;
+    }
+    .testimonial-content{
+       display:flex;
+       flex-direction:column;
+       align-items:center ;
+       gap:2rem;
+    }
+   /* .testimonial-avatar{
+        margin:5rem;
+    }*/
+    .testimonial-card{
+    display:flex;
+    flex-direction:column;
+    border:2px solid black;
+    border-radius:1rem;
+    box-shadow:0 2px 4px rgba(0,0,0,0,1);
+    padding:2rem;
+    gap:1.6rem;
+    transition:transform 0.3s ease,box-shadow 0.3s ease;
+
+    }
+    .testimonial-card:hover{
+        transform:scale(1.05);
+        box-shadow:0 4px 8px rgba(0,0,0,0,2);
+        border:1px solid blue;
+    }
+    .testimonial-text{
+        font-size:1rem;
+        color:#555;
+    }
+    .testimonial-details{
+        color:var(--primary-color);
+        font-size: 1rem;
+    }
+    .testimonial-avatar{
+        border-radius:200px;
+    }
+  .testimonial-details p{
+        color:#555;
+    }
+    .newsletter-container{
+        background-color:var(--background-color) ;
+        padding:2rem;
+        max-width:1200px;
+        height:45vh;
+        margin:0 auto;
+
+
+    }
+    .newsletter-content{
+        display:flex;
+        background-color:var(--light-grey) ;
+        height:100%;
+        border-radius:8px;
+        overflow:hidden;
+    }
+    /*.feature-card:nth-child(2)*/
+    .news-left{
+        height:100%;
+        width:50%;
+        display:none;
+    }
+    .news-left img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        object-position:center;
+
+    }
+    .news-right{
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+        padding:2rem;
+        justify-content:center;
+        align-items:flex-start;
+    }
+    @media screen and (min-width:640px){
+        .news-left{
+            display:block;
+        }
+    }
+    .news-title{
+        font-size:1.6rem;
+        font-weight:bold;
+        color:var(--primary-color);
+    }
+    .news-info{
+        padding:0.3rem;
+    }
+    .news-desc{
+        text-align:left;
+        color:#777;
+    }
+    .news-form{
+        padding:0.3rem;
+        display:flex;
+        flex-direction:row;
+        margin-bottom:1rem;
+        gap:0.6rem;
+    }
+    .news-email{
+        background-color:var(--background-color) ;
+        width:100%;
+        color:#333;
+        outline:none;
+        border:1px solid #ccc;
+        border-radius:4px;
+        padding:.5rem .75rem;
+    }
+    .news-email:focus{
+        border-color:#2563eb;
+        box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    }
+    .news-send-button{
+        background-color:var(--primary-color) ;
+        color:var(--background-color);
+        border:none;
+        border-radius:.25rem;
+        padding:.5rem 1rem;
+    }
+    .privacy-policy{
+        font-size:.76rem;
+        padding:.3rem;
+    }
+    .news-link{
+        text-decoration:underline;
+        color:#2563eb;   
+    }
+    @media screen and(min-width){
+        .news-title{
+            font-size:2.5rem;
+        }
+        .news-right{
+            width:50%;
+        }    
+    }
+    .footer-container{
+        background-color:var(--background-color) ;
+        margin:0 auto;
+        padding:02rem;
+        display:flex;
+        flex-direction:column;
+        max-width:1280px;
+        
+    }
+    .footer{
+        max-width:1280px;
+        padding:1.2rem 2.4rem;
+        text-align:left;
+        display:flex;
+        justify-content:space-between;
+
+    }
+    .footer-top{
+        width:34%;
+
+    }
+    .social-icon{
+        width:1.5rem;
+        height:1.5rem;
+    }
+    .logo-link{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:0.8rem;
+        font-size:1.28rem;
+        font-weight:bold;
+        color:black;
+    }
+    .comp-logo{
+        display:flex;
+        justify-content:flex-start;
+        margin-bottom:-1.7rem;
+    }
+    .logo-svg{
+        width:1.8rem;
+        height:5.8rem;
+    }
+    .filler-text{
+        font-size:1rem;
+        color:#777;
+    }
+    .footer-top{
+        width:34%;
+        display:flex;
+        flex-direction:column;
+        gap:1.65rem;
+    }
+    .footer-grid{
+        display:grid;
+        grid-template-columns:repeat(4,1fr) ;
+        grid-gap:5.67rem;
+        width:58%;
+        padding-top:1.9rem;
+    }
+    .footer-grid-heading{
+        font-size:1.05rem;
+        font-weight:bold;
+        color:var(--text-color)
+    }
+    ul{
+        list-style-type:none;
+    }
+    .footer-link{
+        color:#777;
+        font-size:.9rem;
+       /* gap:1.4rem;*/
+
+    }
+    .footer-links-lists{
+        display:flex;
+        flex-direction:column;
+        gap:1.4rem;
+    }
+    .footer-grid-heading{
+        gap:1.6rem;
+        font-size:1.1rem;
+    }
+    .social{
+        display:flex;
+        gap:.6rem;
+    }
+    .footer-copyright{
+        color:var(--grey);
+        font-size:.75rem;
+        padding-bottom:2rem;
+        margin-top:1.1rem;
+        border-top:1px solid #E5E7EB;
+        padding-top:1rem;   
+    }
+    .footer-grid-heading{
+        padding-bottom:2rem;
+    }
+    @media screen and (max-width:500px){
+    .footer{
+        flex-direction:column;
+        align-items:center;
+    }
+    .footer-top{
+     padding-left:6rem;
+    }
+    .footer-grid{
+        align-self:center;
+        justify-content:space-evenly;
+    }
+}
+@media screen and (max-width:500px){
+    .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+</style>
+</head>
+<body>
+  <div class="header">
+    <header class="header_content">
+        <a href="#logo" class="logo">
+            <img src="https://image.shutterstock.com/image-photo/image-260nw-502420129.jpg" alt="" class="logo-icon"/>
+            <span class="logo-txt">StudySync</span>
+        </a>
+        <nav class="nav">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#features"class="nav-link">Features</a>
+          <a href="#pricing"class="nav-link">Pricing</a>
+          <a href="#blog"class="nav-link">Blog</a>
+          <a href="#about"class="nav-link">About</a>
+        </nav>
+        <a href="#contact" class="contact-button">Contact Us</a>
+        <button class="menu-button">
+            <img src="" alt="" class="menu-icon"/>
+        </button>
+    </header>
+    <div class="content">
+        <section class="main-section">
+            <div class="content-left">
+                <p class="section-label">Very proud to introduce</p>
+                <h1 class="section-title">Seamless Learning for Brighter Futures</h1>
+                <p class="section-desc">
+                    Our innovative platform offers an effortless and seamless approach to learnig ,empowering
+                     students of all ages to achieve brighter future on a transformative 
+                     journey to simplify education and unlock potential. 
+                </p>
+                <div class="button-group">
+                    <a href="#start" class="start-button">Start Now</a>
+                    <a href="#tour" class="tour-button">take Tour</a>
+                </div>
+            </div>
+            <div class="content-right">
+              <div class="image-container">
+                <img src="https://th.bing.com/th/id/OIP.wMzAuHDcivlTPKsZEJtA3QHaEo?rs=1&pid=ImgDetMain" alt="" class="section-image"/>
+              </div>
+                
+            </div>
+        </section>
+    </div>
+  </div>
+  <div class="company-container">
+    <h2 class="company-title">Trusted by the best</h2>
+    <div class="company-grid">
+        <div class="company-logo">
+            <img src="https://th.bing.com/th/id/OIP.lpL40VJTphR3MOem2e7MkQHaEK?w=3840&h=2160&rs=1&pid=ImgDetMain" alt=""width="55px"  height="50px" class="svg-img"/>
+            <span class="logo-text">Google</span>
+        </div>
+        <div class="company-logo">
+            <img src="https://th.bing.com/th/id/R.c3ac08076933e815ef39557f89b47f9b?rik=YNSsRadQZQdQQQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-mPh7lr-L5kw%2fURx8FtZsRYI%2fAAAAAAAAAU8%2f1Rl4GwVdyhM%2fs1600%2fmicrosoft-logo%2b(1).jpg&ehk=r%2bxBCHuV9agjuFR%2b2LkIJJT0rYEqC%2fUFrlQHeoKN7Uk%3d&risl=&pid=ImgRaw&r=0" alt="" width="55px"  height="50px" class=""/>
+            <span class="logo-text">Microsoft</span>
+        </div>
+        <div class="company-logo">
+            <img src="https://th.bing.com/th/id/OIP.QAxeJ33Fyfd28DXfzIQ95QHaHa?w=2048&h=2048&rs=1&pid=ImgDetMain" alt="" width="55px"  height="50px" class="svg-img"/>
+            <span class="logo-text">linkedin</span>
+        </div>
+        <div class="company-logo">
+            <img src="https://www.shutterstock.com/shutterstock/photos/1127953793/display_1500/stock-vector-education-logo-concept-1127953793.jpg" alt="" width="55px"  height="50px" class="svg-img"/>
+            <span class="logo-text">VectorEdu</span>
+        </div>
+    </div>
+   <div class="feature-container">
+    <div class="feature-content">
+        <div class="main-info">
+            <h2 class="main-title2">Our Competitive Adantage</h2>
+            <p class="main-description2">This is a section of some filter text,also known as placeholder text.It share some characteristics of real written text but 
+              it  is random or otherwise generation.
+            </p>
+        </div>
+        <div class="feature-grid">
+            <!--card1-->
+            <div class="feature-card">
+                <div class="icon-container">
+                    <img
+                    src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg" width="50px" height="40px"/>
+                </div>
+                <div class="feature-info">
+                    <div class="feature-title">Personlised Learning</div>
+                    <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                        student needs.
+                    </div>
+                </div>
+            </div>
+             <!--card2-->
+             <div class="feature-card">
+                <div class="icon-container">
+                    <img
+                    src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg"width="50px" height="40px"/>
+
+                </div>
+                <div class="feature-info">
+                    <div class="feature-title">Affordability</div>
+                    <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                        student needs.
+                    </div>
+                </div>
+                </div>
+              <!--card3-->
+                        <div class="feature-card">
+                            <div class="icon-container">
+                                <img
+                                src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg"width="50px" height="40px"/>
+            
+                            </div>
+                            <div class="feature-info">
+                                <div class="feature-title">Industry partnerships</div>
+                                <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                                    student needs.
+                                </div>
+                            </div>
+                            </div>
+
+               <!--card4-->
+                    <div class="feature-card">
+                        <div class="icon-container">
+                            <img
+                            src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg"width="50px" height="40px"/>
+        
+                        </div>
+                        <div class="feature-info">
+                            <div class="feature-title">Innovative Technology</div>
+                            <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                                student needs.
+                            </div>
+                        </div>
+                    </div>
+                <!--card5-->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <img
+                        src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg"width="50px" height="40px"/>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">Responsive Support</div>
+                        <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                            student needs.
+                        </div>
+                    </div>
+                    </div>
+                 <!--card6-->
+                 <div class="feature-card">
+                    <div class="icon-container">
+                        <img src="https://www.mheducation.com.sg/media/wysiwyg/ss-2020-Global_StudySync_Logo_2.jpg"width="50px" height="40px"/>
+    
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-title">Personlised Learning</div>
+                        <div class="feature-desc">Offer tailored learnig experience through AI and machine learning to cater to individual 
+                            student needs.
+                        </div>
+                    </div>
+                    </div>
+    </div>
+ </div>
+</div>
+ <div class="testimonial-container">
+    <div class="testimonial-content">
+        <h2 class="testimonial-title">What Others Say About Us</h2>
+        <div class="testimonial-grid">
+            <!--card1-->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "StudySync revolutionized my classroom ! Engaging content and teacher resources make learning enjoyable.Highly recommend for education. "
+                </div>
+                <div class="testimonial-avatar">
+                    <img src="https://whosonthemove.com/wp-content/uploads/2019/10/S.-Johnson-2.jpg" width="200px" height="150px">
+                </div>
+                <div class="testimonial-details">
+                    <h3>Sarah Johnson</h3>
+                    <p>8th Grade Engish Teacher</p>
+                </div>
+            </div>
+             <!--card2-->
+             <div class="testimonial-card">
+                <div class="testimonial-text">
+                   "studySync transformed our family's learning journey.Safe,interactive,and progress tracking features are invaluable for parents." 
+                </div>
+                <div class="testimonial-avatar">
+                    <img src="https://th.bing.com/th/id/OIP.2CF5GayCzx0Cvk9dOD1RCwHaIu?w=864&h=1018&rs=1&pid=ImgDetMain"width="200px" height="150px">
+                </div>
+                <div class="testimonial-details">
+                    <h3>Mark Davis</h3>
+                    <p>parents</p>
+                </div>
+            </div>
+
+              <!--card3-->
+              <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "StudySync, a true game-changer!Flexible content,tailored assessments,and excellant support.
+                    Integral to our school district's success."
+                </div>
+                <div class="testimonial-avatar">
+                    <img src="https://c8.alamy.com/comp/G0KG48/april-3-2016-jim-carter-attending-the-olivier-awards-2016-at-royal-G0KG48.jpg"width="200px" height="150px">>
+                </div>
+                <div class="testimonial-details">
+                    <h3>Dr.James Cartor</h3>
+                    <p>School Administrator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ <div class="newsletter-container">
+    <div class="newsletter-content">
+        <!--left-part-->
+        <div class="news-left">
+        <img src="https://img.freepik.com/premium-photo/world-map-with-network-connection_553012-12861.jpg?w=2000"/>
+    </div>
+         <!---rightt-part-->
+         <div class="news-right">
+            <div class="news-info">
+                <h2 class="news-title">Get the Latest Updates</h2>
+              <p class="news-desc ">Sign up for our newsletter</p> 
+            </div>
+            <form class="news-form">
+                <input class="news-email"  placeholder="Email"/>
+                <button class="news-send-button">Send </button>
+            </form>
+         <div class="privacy-policy">
+         By signing up to our newsletter you agree to our 
+         <a class="news-link">Terms of service</a>
+         and
+         <a class="news-link">Privacy policy</a>
+    </div>
+ </div>
+    </div>
+ </div>
+ <div class="footer-container">
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="comp-logo">
+            <a class="logo-link">
+                <img  class="logo-svg"src="https://cdn-icons-png.flaticon.com/512/5245/5245644.png"/>
+                StudySync
+            </a>
+            </div>
+            <p class="filler-text">Seamless Learning for brighter future.</p>
+            <div class="social">
+                <a class="social-link">
+                    <img src="https://th.bing.com/th/id/OIP.fj8-xo00MERjDl51zTXF_AHaEK?rs=1&pid=ImgDetMain" class="social-icon" width="15px" height="15px" />
+                </a>
+                <a class="social-link">
+                    <img src="https://th.bing.com/th/id/OIP.j1EJ5qUtp6Av2TBpX14-mAHaHa?w=500&h=500&rs=1&pid=ImgDetMain" class="social-icon" width="15px" height="15px"/>
+                </a>
+                <a class="social-link">
+                    <img src="https://th.bing.com/th/id/OIP.X2o257HpNW7ME1yYHcU2QwHaHw?w=860&h=900&rs=1&pid=ImgDetMain" class="social-icon" width="15px" height="15px"/>
+                </a>
+                <a class="social-link">
+                    <img src="https://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19759.png" class="social-icon" width="15px" height="15px"/>
+                </a>
+            </div>
+        </div>
+        <div class="footer-grid">
+            <!--column1-->
+            <div class="footer-grid-column">
+               <div class="footer-grid-heading">
+                Products
+               </div>
+               <ul class="footer-links-lists">
+                <li><a href="#" class="footer-link">Overview</a></li>
+                <li><a href="#" class="footer-link" >Solution</a></li>
+                <li><a href="#" class="footer-link">Pricing</a></li>
+                <li><a href="#" class="footer-link">Customers</a></li>
+            
+               </ul>
+            </div>
+        
+         <!--column2-->
+         <div class="footer-grid-column">
+            <div class="footer-grid-heading">
+             Company
+            </div>
+            <ul class="footer-links-lists">
+             <li><a href="#" class="footer-link">About</a></li>
+             <li><a href="#" class="footer-link" >Investor Relation</a></li>
+             <li><a href="#" class="footer-link">Jobs</a></li>
+             <li><a href="#" class="footer-link">Press</a></li>
+             <li><a href="#" class="footer-link">Blog</a></li>
+         
+            </ul>
+         </div>
+     
+          <!--column3-->
+          <div class="footer-grid-column">
+            <div class="footer-grid-heading">
+             Support
+            </div>
+            <ul class="footer-links-lists">
+             <li><a href="#" class="footer-link">Contact</a></li>
+             <li><a href="#" class="footer-link" >Documentation</a></li>
+             <li><a href="#" class="footer-link">Chat/</a></li>
+             <li><a href="#" class="footer-link">FAQ</a></li>
+         
+            </ul>
+         </div>
+     
+           <!--column4-->
+           <div class="footer-grid-column">
+            <div class="footer-grid-heading">
+            Legal
+            </div>
+            <ul class="footer-links-lists">
+             <li><a href="#" class="footer-link">Terms of service</a></li>
+             <li><a href="#" class="footer-link" >Privacy Policy</a></li>
+             <li><a href="#" class="footer-link">Cookie setting</a></li>
+            </ul>
+         </div>
+     
+
+    </footer>
+    <div class="footer-copyright">
+        &#169 2021-present StudySync.All rights reserved.
+
+
+    </div>
+ </div>
+</body>
+</html>
