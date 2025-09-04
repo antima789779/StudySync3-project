@@ -1,6 +1,7 @@
 📚 StudySync – Smart Study Planner for Student
 
 StudySync is a responsive and visually appealing front-end web project crafted with pure HTML and CSS. It’s designed to help students stay organized, focused, and productive by offering a clean interface for managing study resources
+🔗 [View Live Demo](https://animated-alpaca-48b77c.netlify.app/)
 
 🧰 Built With
 - HTML5 – Semantic markup for structure and accessibility
