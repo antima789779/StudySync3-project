@@ -23,7 +23,7 @@ StudySync/
 🚀 Getting Started
 To run the project locally:
 - Clone the repository
-git clone https://github.com/antima789779/Study-Sync2--Project.git
+git clone https://github.com/antima789779/StudySync3-project.git
 - Navigate to the project folder
 cd studysync3-project
 - Open index.html in your browser
